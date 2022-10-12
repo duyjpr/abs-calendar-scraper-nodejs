@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "scripts": {
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "ical-generator": "^3.6.0",
+    "node-fetch": "^3.2.10",
+    "node-html-parser": "^6.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.25.0"
+  }
+}
