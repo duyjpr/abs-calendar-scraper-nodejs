@@ -99,9 +99,8 @@ function toIcal(entries) {
       description: [
         e.description,
         "",
-        !e.theme ? "" : `${e.theme} / ${e.parentTopic} / ${e.topic}`,
         e.latestUrl
-      ].join("\n")
+      ].join("\n"),
     });
   }
   return calendar;
