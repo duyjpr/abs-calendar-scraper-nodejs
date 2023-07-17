@@ -4,7 +4,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "ical-generator": "^3.6.0",
+    "ical-generator": "^5.0.0",
     "node-fetch": "^3.2.10",
     "node-html-parser": "^6.1.1"
   },
