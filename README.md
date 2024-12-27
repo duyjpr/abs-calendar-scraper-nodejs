@@ -8,7 +8,7 @@ This service provides a feed you can add to always have upcoming releases of int
 
 ## Examples
 
-Add these URLs to you calendar app.
+Add these URLs to you calendar app to see what the service provides.
 
 - All releases for the next 6 months:
 
@@ -21,18 +21,34 @@ Add these URLs to you calendar app.
 
 ## General use
 
-`https://abs-calendar-scraper.vercel.app/api/v1/calendar?format=`**{format}**`&`**{field1}={value1}**`&`**{field1}={value2}**`...`
+This service uses standard HTTP REST (GET):
 
-Supported formats:
-- `icalendar`: iCalendar/iCal/ICS format used by many calendar apps.
-- `json`: (default) raw entries, useful for finding fields to filter on.
+```
+GET {host}/api/v1/calendar?{option1}={value1}&{filter1}={exact1}...
+```
+The public **host** is `https://abs-calendar-scraper.vercel.app`
 
-Filters can be provided as `field=value` pairs, separated by `&`.
-- No filters will return all releases.
-- Multiple fields/filters are joined with OR. 
-- Values must match the entire value; no partial matches. This prevents, e.g. *Labour Force* from spuriously matching *Labour Force, Detailed*.
-- Match multiple values by repeating query parameters, e.g. `&topic=`**{labour-force-australia}**`&topic=`**{retail-trade-australia}**
-- Values may need to be [percent-encoded](https://en.wikipedia.org/wiki/Percent-encoding) since they appear in URLs.
+All arguments are optional and case-sensitive. The following sections describe supported options/filters.
+
+### format
+
+- `icalendar` (default): understood by many calendar apps.
+- `json`: array of dictionaries holding the fields for each release. Useful for finding fields to filter on.
+
+### allday
+
+- `Australia/Melbourne` (default) or another [IANA timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones): events are all-day according to this timezone. This will display at the top of the day in most calendar apps, which prevents them getting lost on busy days.
+- `false`: events happen at 11:30 Canberra time.
+
+## Filters: `theme`, `parentTopic`, `topic`, `title`, etc.
+
+All other parameters are interpreted as filters for selecting which releases to show.
+
+- No filters: returns all releases.
+- Multiple filters are joined with **OR**. 
+- Repeat filters to find multiple values, e.g. labour force and retail trade: `&topic=labour-force-australia&topic=retail-trade-australia`
+- Filters must match the entire value; no partial matches. This prevents, e.g. *Labour Force* from spuriously picking up *Labour Force, Detailed*.
+- Values may need to be [percent-encoded](https://en.wikipedia.org/wiki/Percent-encoding) since they appear in URLs. Using the `topic` rather than the `title` usually gets around this.
 
 Recognised fields:
 - `theme`/`parentTopic`/`topic`: follows [ABS terminology](https://www.abs.gov.au/welcome-new-abs-website#navigating-our-web-address-structure):
@@ -44,6 +60,19 @@ Recognised fields:
 
 - Other fields can be found in the JSON export.
 
+⚠️ Unrecognised fields currently result in no releases being returned.
+
 ## Development
 
 This uses NodeJS serverless functions to generate the iCalendar file on request. The current file layout under `/api` works with [Vercel Serverless Functions](https://vercel.com/docs/concepts/functions/serverless-functions). Other providers may have their own file layout requirements.
+
+To run a dev instance:
+```sh
+npx vercel dev
+```
+
+Tests and code coverage rely on `jest`:
+```sh
+npm run test
+npm run coverage
+```

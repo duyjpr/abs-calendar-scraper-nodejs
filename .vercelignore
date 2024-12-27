@@ -1,0 +1,5 @@
+/*
+# Deployment whitelist
+!api
+!vercel.json
+!package.json

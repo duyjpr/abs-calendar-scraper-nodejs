@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`.ics for all events 1`] = `
+"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID://github:duyjpr//abs-calendar-scraper-nodejs//EN
+X-WR-CALNAME:ABS releases
+NAME:ABS releases
+BEGIN:VEVENT
+UID:Start-decade-normal-event-2000s-2000-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20000101
+SUMMARY:Start decade (normal event) for 2000s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Mid-decade-for-filters-2000s-2004-12-31T23-59-59Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20050101
+SUMMARY:Mid decade (for filters) for 2000s
+DESCRIPTION:https://test.case/dates/decade/mid-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:End-decade-for-filters-2000s-2009-12-31T23-59-59Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20100101
+SUMMARY:End decade (for filters) for 2000s
+DESCRIPTION:https://test.case/dates/decade/end-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Start-decade-2nd-release-2010s-2010-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20100101
+SUMMARY:Start decade (2nd release) for 2010s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:New-product-first-release-Dec-2025-2026-01-14T01-30-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20260114
+SUMMARY:New product (first release) for Dec 2025
+END:VEVENT
+BEGIN:VEVENT
+UID:Timezone-test-4-July-1am-in-Melbourne-2025-07-03T15-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20250704
+SUMMARY:Timezone test for 4 July @ 1am in Melbourne
+DESCRIPTION:https://test.case/dates/edge/timezone/latest-release
+END:VEVENT
+END:VCALENDAR"
+`;
+
+exports[`another timezone 1`] = `
+"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID://github:duyjpr//abs-calendar-scraper-nodejs//EN
+X-WR-CALNAME:ABS releases
+NAME:ABS releases
+BEGIN:VEVENT
+UID:Timezone-test-4-July-1am-in-Melbourne-2025-07-03T15-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20250703
+SUMMARY:Timezone test for 4 July @ 1am in Melbourne
+DESCRIPTION:https://test.case/dates/edge/timezone/latest-release
+END:VEVENT
+END:VCALENDAR"
+`;
+
+exports[`exact time 1`] = `
+"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID://github:duyjpr//abs-calendar-scraper-nodejs//EN
+X-WR-CALNAME:ABS releases
+NAME:ABS releases
+BEGIN:VEVENT
+UID:Start-decade-normal-event-2000s-2000-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART:20000101T000000Z
+DTEND:20000101T000000Z
+SUMMARY:Start decade (normal event) for 2000s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Mid-decade-for-filters-2000s-2004-12-31T23-59-59Z
+DTSTAMP:20000101T000001Z
+DTSTART:20041231T235959Z
+DTEND:20041231T235959Z
+SUMMARY:Mid decade (for filters) for 2000s
+DESCRIPTION:https://test.case/dates/decade/mid-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:End-decade-for-filters-2000s-2009-12-31T23-59-59Z
+DTSTAMP:20000101T000001Z
+DTSTART:20091231T235959Z
+DTEND:20091231T235959Z
+SUMMARY:End decade (for filters) for 2000s
+DESCRIPTION:https://test.case/dates/decade/end-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Start-decade-2nd-release-2010s-2010-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART:20100101T000000Z
+DTEND:20100101T000000Z
+SUMMARY:Start decade (2nd release) for 2010s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:New-product-first-release-Dec-2025-2026-01-14T01-30-00Z
+DTSTAMP:20000101T000001Z
+DTSTART:20260114T013000Z
+DTEND:20260114T013000Z
+SUMMARY:New product (first release) for Dec 2025
+END:VEVENT
+BEGIN:VEVENT
+UID:Timezone-test-4-July-1am-in-Melbourne-2025-07-03T15-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART:20250703T150000Z
+DTEND:20250703T150000Z
+SUMMARY:Timezone test for 4 July @ 1am in Melbourne
+DESCRIPTION:https://test.case/dates/edge/timezone/latest-release
+END:VEVENT
+END:VCALENDAR"
+`;
+
+exports[`filter 1`] = `
+"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID://github:duyjpr//abs-calendar-scraper-nodejs//EN
+X-WR-CALNAME:ABS releases
+NAME:ABS releases
+BEGIN:VEVENT
+UID:Start-decade-normal-event-2000s-2000-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20000101
+SUMMARY:Start decade (normal event) for 2000s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Mid-decade-for-filters-2000s-2004-12-31T23-59-59Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20050101
+SUMMARY:Mid decade (for filters) for 2000s
+DESCRIPTION:https://test.case/dates/decade/mid-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:End-decade-for-filters-2000s-2009-12-31T23-59-59Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20100101
+SUMMARY:End decade (for filters) for 2000s
+DESCRIPTION:https://test.case/dates/decade/end-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Start-decade-2nd-release-2010s-2010-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20100101
+SUMMARY:Start decade (2nd release) for 2010s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+END:VCALENDAR"
+`;
+
+exports[`filters 1`] = `
+"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID://github:duyjpr//abs-calendar-scraper-nodejs//EN
+X-WR-CALNAME:ABS releases
+NAME:ABS releases
+BEGIN:VEVENT
+UID:Start-decade-normal-event-2000s-2000-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20000101
+SUMMARY:Start decade (normal event) for 2000s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Mid-decade-for-filters-2000s-2004-12-31T23-59-59Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20050101
+SUMMARY:Mid decade (for filters) for 2000s
+DESCRIPTION:https://test.case/dates/decade/mid-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:End-decade-for-filters-2000s-2009-12-31T23-59-59Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20100101
+SUMMARY:End decade (for filters) for 2000s
+DESCRIPTION:https://test.case/dates/decade/end-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Start-decade-2nd-release-2010s-2010-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20100101
+SUMMARY:Start decade (2nd release) for 2010s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+END:VCALENDAR"
+`;
+
+exports[`filters on multiple fields 1`] = `
+"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID://github:duyjpr//abs-calendar-scraper-nodejs//EN
+X-WR-CALNAME:ABS releases
+NAME:ABS releases
+BEGIN:VEVENT
+UID:Start-decade-normal-event-2000s-2000-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20000101
+SUMMARY:Start decade (normal event) for 2000s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:Start-decade-2nd-release-2010s-2010-01-01T00-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20100101
+SUMMARY:Start decade (2nd release) for 2010s
+DESCRIPTION:https://test.case/dates/decade/start-decade/latest-release
+END:VEVENT
+BEGIN:VEVENT
+UID:New-product-first-release-Dec-2025-2026-01-14T01-30-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20260114
+SUMMARY:New product (first release) for Dec 2025
+END:VEVENT
+END:VCALENDAR"
+`;
+
+exports[`json output 1`] = `"[{"time":"2000-01-01T00:00:00Z","title":"Start decade (normal event)","referencePeriod":"2000s","latestUrl":"https://test.case/dates/decade/start-decade/latest-release","theme":"dates","parentTopic":"decade","topic":"start-decade"},{"time":"2004-12-31T23:59:59Z","title":"Mid decade (for filters)","referencePeriod":"2000s","latestUrl":"https://test.case/dates/decade/mid-decade/latest-release","theme":"dates","parentTopic":"decade","topic":"mid-decade"},{"time":"2009-12-31T23:59:59Z","title":"End decade (for filters)","referencePeriod":"2000s","latestUrl":"https://test.case/dates/decade/end-decade/latest-release","theme":"dates","parentTopic":"decade","topic":"end-decade"},{"time":"2010-01-01T00:00:00Z","title":"Start decade (2nd release)","referencePeriod":"2010s","latestUrl":"https://test.case/dates/decade/start-decade/latest-release","theme":"dates","parentTopic":"decade","topic":"start-decade"},{"time":"2026-01-14T01:30:00Z","title":"New product (first release)","referencePeriod":"Dec 2025"},{"time":"2025-07-03T15:00:00Z","title":"Timezone test","referencePeriod":"4 July @ 1am in Melbourne","latestUrl":"https://test.case/dates/edge/timezone/latest-release","theme":"dates","parentTopic":"edge","topic":"timezone"}]"`;
+
+exports[`timezone 1`] = `
+"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID://github:duyjpr//abs-calendar-scraper-nodejs//EN
+X-WR-CALNAME:ABS releases
+NAME:ABS releases
+BEGIN:VEVENT
+UID:Timezone-test-4-July-1am-in-Melbourne-2025-07-03T15-00-00Z
+DTSTAMP:20000101T000001Z
+DTSTART;VALUE=DATE:20250704
+SUMMARY:Timezone test for 4 July @ 1am in Melbourne
+DESCRIPTION:https://test.case/dates/edge/timezone/latest-release
+END:VEVENT
+END:VCALENDAR"
+`;

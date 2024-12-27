@@ -1,0 +1,58 @@
+# Mocked out web page snippets for testing. These illustrate the structure
+# scraped from ABS website.
+
+https://www.abs.gov.au/release-calendar/future-releases-calendar: |
+  <div class="date-pager">
+    <a href="month1"></a>
+    <a href="month2"></a>
+  </div>
+
+https://www.abs.gov.au/release-calendar/month1: |
+  <div class="calendar">
+    <time datetime="2000-01-01T00:00:00Z"></time>
+    <div class="event-name">Start decade (normal event)</div>
+    <div class="reference-period-value">2000s</div>
+    <div class="rs-product-link-latest">
+      <a href="https://test.case/dates/decade/start-decade/2000"></a>
+    </div>
+  </div>
+  <div class="calendar">
+    <time datetime="2004-12-31T23:59:59Z"></time>
+    <div class="event-name">Mid decade (for filters)</div>
+    <div class="reference-period-value">2000s</div>
+    <div class="rs-product-link-latest">
+      <a href="https://test.case/dates/decade/mid-decade/2000"></a>
+    </div>
+  </div>
+
+https://www.abs.gov.au/release-calendar/month2: |
+  <div class="calendar">
+    <time datetime="2009-12-31T23:59:59Z"></time>
+    <div class="event-name">End decade (for filters)</div>
+    <div class="reference-period-value">2000s</div>
+    <div class="rs-product-link-latest">
+      <a href="https://test.case/dates/decade/end-decade/2000"></a>
+    </div>
+  </div>
+  <div class="calendar">
+    <time datetime="2010-01-01T00:00:00Z"></time>
+    <div class="event-name">Start decade (2nd release)</div>
+    <div class="reference-period-value">2010s</div>
+    <div class="rs-product-link-latest">
+      <a href="https://test.case/dates/decade/start-decade/2010"></a>
+    </div>
+  </div>
+  <div class="calendar">
+    <time datetime="2026-01-14T01:30:00Z"></time>
+    <div class="event-name">New product (first release)</div>
+    <div class="reference-period-value">Dec 2025</div>
+    <!-- No product URL -->
+  </div>
+  <div class="calendar">
+    <time datetime="2025-07-03T15:00:00Z"></time>
+    <div class="event-name">Timezone test</div>
+    <div class="reference-period-value">4 July @ 1am in Melbourne</div>
+    <div class="rs-product-link-latest">
+      <a href="https://test.case/dates/edge/timezone/july-2025"></a>
+    </div>
+  </div>
