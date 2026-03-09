@@ -30,34 +30,35 @@ async function checkOutput(url) {
   expect(generated).toMatchSnapshot();
 }
 
-test(".ics for all events", async () => await checkOutput(
+test("Generate iCal for all events", async () => await checkOutput(
   "https://test.case",
 ));
 
-test("filter", async () => await checkOutput(
+test("Apply basic filter", async () => await checkOutput(
   "https://test.case?format=icalendar&parentTopic=decade",
 ));
 
-test("filters", async () => await checkOutput(
+test("Apply filter - multple values", async () => await checkOutput(
   "https://test.case?format=icalendar&topic=start-decade&topic=end-decade&topic=mid-decade",
 ));
 
-test("filters on multiple fields", async () => await checkOutput(
+test("Apply filter - multiple fields", async () => await checkOutput(
   "https://test.case?format=icalendar&topic=start-decade&referencePeriod=Dec%202025",
 ));
 
-test("json output", async () => await checkOutput(
+test("JSON output", async () => await checkOutput(
   "https://test.case?format=json",
 ));
 
-test("exact time", async () => await checkOutput(
+test("Use release time as well as date", async () => await checkOutput(
   "https://test.case?format=icalendar&allday=false",
 ));
 
-test("timezone", async () => await checkOutput(
+test("Default timezone conversion to Melbourne time", async () => await checkOutput(
   "https://test.case?format=icalendar&topic=timezone",
 ));
 
-test("another timezone", async () => await checkOutput(
+test("Timezone conversion of event dates", async () => await checkOutput(
   "https://test.case?format=icalendar&allday=Australia/Perth&topic=timezone",
 ));
+
