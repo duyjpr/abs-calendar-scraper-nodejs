@@ -1,0 +1,35 @@
+# Bumps dependencies if dependabot alerts are active. This usually resolves
+# alerts that needed to wait for upstream to update first.
+name: dependabot bump-deps
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '5 3 * * 2' # Weekly, early hours of Tuesday
+    timezone: 'Australia/Melbourne'
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check dependabot alerts
+      id: check_dependabot
+      run: |
+        answer=$(gh api "/repos/${REPO}/dependabot/alerts?state=open")
+        has_alerts=$([[ "[]" != "$answer" ]] && echo true || echo false)
+        echo "has_alerts=$has_alerts" >> $GITHUB_OUTPUT
+      env:
+        REPO: ${{ github.repository }}
+        GH_TOKEN: ${{ github.token }}
+    - uses: actions/checkout@v7
+      if: ${{ steps.check_dependabot.outputs.has_alerts == 'true' }}
+    - name: Update deps if any dependabot alerts
+      if: ${{ steps.check_dependabot.outputs.has_alerts == 'true' }}
+      run: npm update
+    - name: Auto commit
+      if: ${{ steps.check_dependabot.outputs.has_alerts == 'true' }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Dependency bump (weekly dependabot)"
+        git push
