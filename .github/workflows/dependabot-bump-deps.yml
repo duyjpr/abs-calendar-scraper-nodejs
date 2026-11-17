@@ -8,8 +8,10 @@ on:
     timezone: 'Australia/Melbourne'
 
 jobs:
-  main:
+  check:
     runs-on: ubuntu-latest
+    outputs:
+      has_alerts: ${{ steps.check_dependabot.outputs.has_alerts }}
     steps:
     - name: Check dependabot alerts
       id: check_dependabot
@@ -20,13 +22,14 @@ jobs:
       env:
         REPO: ${{ github.repository }}
         GH_TOKEN: ${{ github.token }}
+  update:
+    runs-on: ubuntu-latest
+    needs: check
+    if: needs.check.outputs.has_alerts == 'true'
+    steps:
     - uses: actions/checkout@v7
-      if: ${{ steps.check_dependabot.outputs.has_alerts == 'true' }}
-    - name: Update deps if any dependabot alerts
-      if: ${{ steps.check_dependabot.outputs.has_alerts == 'true' }}
-      run: npm update
+    - run: npm update
     - name: Auto commit
-      if: ${{ steps.check_dependabot.outputs.has_alerts == 'true' }}
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
